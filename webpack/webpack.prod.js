@@ -46,34 +46,6 @@ module.exports = {
     // https://twitter.com/wSokra/status/969679223278505985
     runtimeChunk: true,
   },
-
-  module: {
-    rules: [
-      {
-        test: /\.(css|scss)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: false,
-              localsConvention: 'camelCase',
-              modules: {
-                localIdentName: '[local]___[hash:base64:5]',
-              },
-            },
-          },
-          'sass-loader',
-        ],
-      },
-    ],
-  },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: `${commonPaths.cssFolder}/[name].css`,
-      chunkFilename: `${commonPaths.cssFolder}/[name].css`,
-    }),
-  ],
+  plugins: [new CleanWebpackPlugin()],
   devtool: 'source-map',
 };
